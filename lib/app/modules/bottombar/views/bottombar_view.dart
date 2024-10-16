@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:siakad/app/modules/profil/views/profil_view.dart';
+import 'package:siakad/app/modules/tahunajaran/views/tahunajaran_view.dart';
 import '../controllers/bottombar_controller.dart';
 import '../../home/views/home_view.dart';
 import '../../mapel/views/mapel_view.dart';
@@ -18,6 +19,7 @@ class BottombarView extends GetView<BottombarController> {
           	children: [
             	HomeView(),
             	MapelView(),
+              TahunajaranView(),
               ProfilView(),
           	],
         	),
@@ -38,6 +40,10 @@ class BottombarView extends GetView<BottombarController> {
           	controller.BotBar(
             	ikon: Icons.calendar_month,
             	label: 'Mapel',
+          	),
+            controller.BotBar(
+            	ikon: Icons.book_online,
+            	label: 'Tahun Ajaran',
           	),
             controller.BotBar(
             	ikon: Icons.person,

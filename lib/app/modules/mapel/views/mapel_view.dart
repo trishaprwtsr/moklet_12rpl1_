@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:siakad/app/routes/app_pages.dart';
 import '../controllers/mapel_controller.dart';
 
 class MapelView extends GetView<MapelController> {
@@ -15,6 +16,12 @@ class MapelView extends GetView<MapelController> {
     	padding: const EdgeInsets.all(8.0),
     	child: Obx(
       	() {
+
+          if (!Get.isRegistered<MapelController>()) {
+        	return Center(child: CircularProgressIndicator());
+      	  }
+      	  final controller = Get.find<MapelController>();
+
         	if (!controller.isLoaded.value) {
           	return Center(child: CircularProgressIndicator());
         	}
@@ -75,9 +82,18 @@ class MapelView extends GetView<MapelController> {
         	backgroundColor: Colors.red,
       	),
       	SizedBox(height: 10),
+      	FloatingActionButton(
+        	onPressed: () {
+          	Get.toNamed(Routes.MAPELTAMBAH);
+        	},
+        	child: Icon(Icons.add),
+        	backgroundColor: Colors.red,
+      	),
+      	SizedBox(height: 10),
     	],
   	),
   	floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
 	);
   }
 }

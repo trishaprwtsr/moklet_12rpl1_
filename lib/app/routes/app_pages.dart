@@ -8,6 +8,9 @@ import '../modules/mapel/bindings/mapel_binding.dart';
 import '../modules/mapel/views/mapel_view.dart';
 import '../modules/profil/bindings/profil_binding.dart';
 import '../modules/profil/views/profil_view.dart';
+import '../modules/tahunajaran/bindings/tahunajaran_binding.dart';
+import '../modules/tahunajaran/views/tahunajaran_view.dart';
+import '../modules/mapel/views/mapel_tambah_view.dart';
 
 part 'app_routes.dart';
 
@@ -15,6 +18,7 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.BOTTOMBAR;
+  
 
   static final routes = [
     GetPage(
@@ -37,5 +41,16 @@ class AppPages {
       page: () => const ProfilView(),
       binding: ProfilBinding(),
     ),
+    GetPage(
+      name: _Paths.TAHUNAJARAN,
+      page: () => const TahunajaranView(),
+      binding: TahunajaranBinding(),
+    ),
+    GetPage(
+  	name: _Paths.MAPELTAMBAH,
+  	page: () => const MapelTambahView(),
+  	binding: MapelBinding(),
+	),
+
   ];
 }
