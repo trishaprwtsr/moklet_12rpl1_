@@ -35,6 +35,7 @@ class MapelController extends GetxController {
     });
   }
 
+
   void updateMapel(int id, Map<String, dynamic> data) {
   RepositoryMapel().updateMapel(id: id, body: data).then((response) {
     if (response != null) {
@@ -43,5 +44,18 @@ class MapelController extends GetxController {
   });
 }
 
+Future<void> deleteMapel(int id) async {
+    final repository = RepositoryMapel();
+    final response = await repository.deleteMapel(id);
+
+    if (response != null) {
+      print('Mapel dengan ID $id berhasil dihapus');
+      await getMapel();
+    } else {
+      print('Gagal menghapus mapel dengan ID $id');
+    }
+  }
+
+  
 
 }

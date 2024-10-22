@@ -65,5 +65,22 @@ Future<http.StreamedResponse?> updateMapel({required int id, required Map<String
     }
   }
 
+Future<http.StreamedResponse?> deleteMapel(int id) async {
+    String url = CORS_ANYWHERE + DOMAIN;
+    var res = http.Request(
+      'DELETE',
+      Uri.parse('$url/send_request?model=moklet.mapel&id=$id'),
+    );
+    res.headers.addAll(defaultHeader);
+    http.StreamedResponse response = await res.send();
+
+    print('Status Code: ${response.statusCode}');
+    if (response.statusCode == 200) {
+      return response;
+    } else {
+      print('Error Reason: ${response.reasonPhrase}');
+      return null;
+    }
+  }
 
 }

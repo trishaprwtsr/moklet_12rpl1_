@@ -26,7 +26,8 @@ class RepositoryKaryawan {
 	return ModelKaryawan(isError: true, data: [], message: 'Gagal Catch');
   }
 }
-  Future<bool> updateKaryawan(int id, Map<String, dynamic> data) async {
+
+Future<bool> updateKaryawan(int id, Map<String, dynamic> data) async {
     String url = CORS_ANYWHERE + DOMAIN + '/send_request?model=hr.employee&id=$id';
     var res = http.Request(
       'PUT',
